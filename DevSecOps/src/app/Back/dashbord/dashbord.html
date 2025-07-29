@@ -1,0 +1,55 @@
+<div class="container">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <!-- SIDEBAR -->
+  <nav class="sidebar" [class.closed]="!sidebarOpen">
+    <div class="sidebar-header">
+      <!-- ✅ Logo au lieu du mot Admin -->
+<img *ngIf="sidebarOpen" src="/src/app/assets/logo.png" alt="Logo" class="logo-img" />
+      <button class="toggle-btn" (click)="toggleSidebar()">
+        <i class="fas" [ngClass]="sidebarOpen ? 'fa-angle-left' : 'fa-angle-right'"></i>
+      </button>
+    </div>
+    <ul>
+      <li><a href="#"><i class="fas fa-home"></i> <span *ngIf="sidebarOpen">Dashboard</span></a></li>
+      <li><a href="#"><i class="fas fa-users"></i> <span *ngIf="sidebarOpen">Utilisateurs</span></a></li>
+      <li><a href="/vulnerability"><i class="fas fa-box"></i> <span *ngIf="sidebarOpen">vulnerability</span></a></li>
+      <li><a href="/vulnerability"><i class="fas fa-box"></i> <span *ngIf="sidebarOpen">vulnerability IA</span></a></li>
+      <li><a href="#"><i class="fas fa-chart-line"></i> <span *ngIf="sidebarOpen">Rapports</span></a></li>
+      <li><a href="#"><i class="fas fa-cog"></i> <span *ngIf="sidebarOpen">Paramètres</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="main">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <span class="logo">Dashboard</span>
+
+      <!-- ✅ Barre de recherche -->
+      <div class="search-box">
+        <input type="text" placeholder="Rechercher..." />
+        <i class="fas fa-search"></i>
+      </div>
+
+      <!-- ✅ Menu utilisateur -->
+      <div class="user-menu">
+        <div class="user-info" (click)="toggleMenu()">
+          <i class="fas fa-user-circle"></i>
+          <span class="username">Admin</span>
+          <i class="fas fa-caret-down"></i>
+        </div>
+        <div class="dropdown" [class.open]="menuOpen">
+          <a href="#"><i class="fas fa-user"></i> Profil</a>
+          <a href="#"><i class="fas fa-cog"></i> Paramètres</a>
+          <a href="#"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="content">
+      <h1>Bienvenue 👋</h1>
+      <p>Voici votre tableau de bord moderne avec logo, barre de recherche, sidebar et menu utilisateur interactif.</p>
+    </div>
+  </div>
+</div>

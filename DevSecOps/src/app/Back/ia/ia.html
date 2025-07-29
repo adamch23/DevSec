@@ -1,0 +1,16 @@
+<div class="ia-container">
+  <h2>💬 Ollama IA Chat</h2>
+
+  <label for="model">Modèle :</label>
+  <select [(ngModel)]="selectedModel" id="model">
+    <option *ngFor="let model of models" [value]="model">{{ model }}</option>
+  </select>
+
+  <textarea [(ngModel)]="prompt" placeholder="Entrez votre question ici..."></textarea>
+  <button (click)="sendPrompt()">Envoyer</button>
+
+  <div *ngIf="response">
+    <h3>Réponse :</h3>
+    <pre>{{ response }}</pre>
+  </div>
+</div>
